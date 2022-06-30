@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_ENV=development && webpack serve",
-    "build:dev": "export NODE_ENV=development && webpack",
-    "build:prod": "export NODE_ENV=production && webpack",
+    "start": "webpack serve",
+    "build:dev": "webpack",
+    "build:prod": "webpack --node-env=production",
     "clean": "rd /s /q dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
