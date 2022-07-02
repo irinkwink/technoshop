@@ -37,7 +37,7 @@
     </div>
   </div>
 </header>
-  <main>
+  <main class="main">
     <section class="cart">
       <div class="container cart__container">
         <h2 class="visually-hidden">Корзина</h2>
@@ -177,14 +177,14 @@
   <footer class="footer">
     <h2 class="visually-hidden">Навигация по сайту</h2>
     <div class="container footer__container">
-      <a href="/">
-        <img class="header__logo" src="img/logo.svg" alt="Логотип Techno Shop">
+      <a href="/" class="footer__logo-link">
+        <img class="footer__logo" src="img/logo.svg" alt="Логотип Techno Shop">
       </a>
 
       <div class="footer__column">
         <h3 class="footer__column-title">Каталог</h3>
 
-        <ul class="footer__list_double">
+        <ul class="footer__list footer__list_double">
           <li class="footer__item">
             <a href="#" class="footer__link">Смартфоны</a>
           </li>
@@ -217,7 +217,7 @@
       <div class="footer__column">
         <h3 class="footer__column-title">Покупателям</h3>
 
-        <ul class="footer__list_double">
+        <ul class="footer__list">
           <li class="footer__item">
             <a href="#" class="footer__link">Оплата заказа</a>
           </li>
@@ -235,16 +235,16 @@
       <div class="footer__column">
         <h3 class="footer__column-title">Контакты</h3>
 
-        <ul class="footer__list_double footer__list_contacts">
-          <li class="footer__item">Тел:
+        <ul class="footer__list footer__list_contacts">
+          <li class="footer__item footer__item_contact">Тел:
             <a href="tel:89149239223" class="footer__link">8 914 923 92 - 23</a>
           </li>
-          <li class="footer__item">Email:
+          <li class="footer__item footer__item_contact">Email:
             <a href="mailto:TechnoSHOP@gmail.com" class="footer__link">TechnoSHOP@gmail.com</a>
           </li>
         </ul>
 
-        <ul class="fotter__social social">
+        <ul class="footer__social social">
           <li class="social__item">
             <a href="" class="social__link" aria-label="отправить сообщение в whats up">
               <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -270,6 +270,14 @@
             </a>
           </li>
         </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__copyright">© TechnoSHOP, 2022</p>
+      </div>
+      <div class="footer__column">
+        <p class="footer__copyright">Design by Anastasia Ilina</p>
+        <p class="footer__copyright">Tg:
+          <a href="https://t.me/Mrshmallowww" class="footer__link">@Mrshmallowww</a></p>
       </div>
     </div>
   </footer>

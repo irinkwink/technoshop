@@ -1,0 +1,148 @@
+.filter {
+  position: relative;
+  margin-top: 78px;
+
+  &__form {
+
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+
+  &__fields-list {
+    margin-bottom: 40px;
+  }
+
+  &__field {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__field-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+
+  &__flex {
+    display: flex;
+    gap: 10px;
+
+    &_column {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+
+  &__input {
+    width: 165px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 9px 10px;
+    border: 1px inset $color-primary;
+
+    &_select {
+      width: 100%;
+      color: $color-grey;
+    }
+
+    &::placeholder {
+      color: $color-grey;
+    }
+
+    &:focus {
+      outline-color: $color-main;
+    }
+  }
+
+
+  //&__checkbox {
+  //  margin-right: 10px;
+  //}
+
+  &__apply {
+    display: block;
+    margin: 0 auto;
+    background-color: $color-primary;
+    color: $color-secondary;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 20px 10px;
+    border: none;
+    transition: background-color 0.36s ease-in-out;
+
+    &:hover {
+      background-color: $color-main;
+    }
+
+    &:active {
+      background-color: $color-main-sub;
+    }
+  }
+
+  &__reset {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-grey;
+    background-color: transparent;
+    border: none;
+    transition: color 0.36s ease-in-out;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+}
+
+.custom-checkbox {
+  display: inline;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  &+label {
+    display: inline-flex;
+    align-items: flex-end;
+    user-select: none;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      flex-grow: 0;
+      margin-right: 4px;
+      background-image: url("img/checkbox.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+  }
+
+  &:checked+label::before {
+    background-image: url("img/checkbox-checked.svg");
+  }
+
+  &:not(:disabled):not(:checked)+label:hover::before {
+    background-image: url("img/checkbox-hover.svg");
+  }
+}
+
+

@@ -1,0 +1,87 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__arrow {
+    width: 18px;
+    height: 18px;
+
+    &_start {
+      transform: rotate(180deg);
+    }
+    &_end {
+
+    }
+    &_disabled {
+      cursor: default;
+      pointer-events: none;
+      color: $color-grey-light;
+    }
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    margin: 0 15px;
+  }
+
+  &__item {
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 5px;
+    }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $color-main;
+    }
+
+    &_active {
+      border-color: $color-main;
+      cursor: default;
+      pointer-events: none;
+    }
+
+
+  }
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 22px;
+  height: 22px;
+  padding: 30px 30px;
+  color: $color-primary;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: -20px;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: -20px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 22px;
+}
