@@ -15,23 +15,26 @@
     margin-bottom: 20px;
   }
 
+  &__slider-thumb {
+    width: 452px;
+  }
+
   &__thumbs {
     margin-bottom: 20px;
   }
 
-  &__slider-thumb {
-    width: 460px;
-  }
-
   &__thumb {
-    border: 2px solid transparent;
+    display: block;
+    width: 120px;
+    height: 120px;
     &_active {
-      border-color: $color-main;
+      outline: 2px solid $color-main;
     }
   }
 
   &__info {
-
+    width: 100%;
+    padding-top: 120px;
   }
 
   &__title {
@@ -59,14 +62,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 119px;
+    width: 100%;
+    max-width: 120px;
     margin-right: 80px;
   }
+
   &__btn {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background-color: $color-secondary;
+    background-color: transparent;
     border: 1px solid $color-primary;
     font-weight: 400;
     font-size: 30px;
@@ -88,6 +93,7 @@
     font-weight: 500;
     font-size: 34px;
     line-height: 41px;
+    margin-right: auto;
   }
 
   &__add-cart {
@@ -100,7 +106,7 @@
     background-color: $color-main;
     color: $color-secondary;
     border: 1px solid $color-main;
-    margin-left: auto;
+
 
     &:hover {
       background-color: $color-main-sub;
@@ -114,28 +120,20 @@
   }
 
   &__params-list {
-
-  }
-
-  &__params-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    white-space: pre-wrap;
-    max-width: 510px;
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;
   }
 
-  &__params-title {
-    flex: 0 1 50%;
-  }
-  &__params-value {
-    flex: 0 0 40%;
+  &__params-item {
+    display: grid;
+    grid-template-columns: 210px max-content;
+    gap: 100px;
+    white-space: pre-wrap;
   }
 
   &__description {
+    max-width: 1450px;
   }
 
   &__description-title {
@@ -149,7 +147,6 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;
-    max-width: 1450px;
   }
 
 }

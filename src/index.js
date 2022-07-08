@@ -7,6 +7,18 @@ import './index.html';
 import './cart.html';
 import './card.html';
 import './index.scss';
+import {pagination} from "./modules/pagination";
+
+const paginationWrapper = document.querySelector('.pagination');
+const pageURL = new URL(location);
+const page = +pageURL.searchParams.get('page') || 1;
+
+try {
+  pagination(paginationWrapper, 20, page, 6);
+} catch (e) {
+  console.warn(e)
+}
+
 
 const thumbSlider = new Swiper('.card__slider-thumb', {
   spaceBetween: 40,

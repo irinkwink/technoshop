@@ -2,10 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 21px;
+  font-size: 18px;
+  line-height: 22px;
 
   &__arrow {
+    display: block;
     width: 18px;
     height: 18px;
+    background-image: url('img/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 
     &_start {
       transform: rotate(180deg);
@@ -13,10 +20,10 @@
     &_end {
 
     }
-    &_disabled {
-      cursor: default;
+
+    &[href=""] {
+      opacity: 0.3;
       pointer-events: none;
-      color: $color-grey-light;
     }
 
     &:hover {
@@ -27,16 +34,9 @@
   &__list {
     display: flex;
     justify-content: center;
-    margin: 0 15px;
+    align-items: center;
+    gap: 10px;
   }
-
-  &__item {
-    vertical-align: middle;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0 5px;
-    }
 
   &__link {
     display: flex;
@@ -46,7 +46,7 @@
     height: 36px;
     border: 2px solid transparent;
     border-radius: 2px;
-    transition: color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       color: $color-main;

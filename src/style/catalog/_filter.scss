@@ -1,9 +1,8 @@
 .filter {
-  position: relative;
-  margin-top: 78px;
+  padding-top: 78px;
 
   &__form {
-
+    position: relative;
   }
 
   &__title {
@@ -40,6 +39,8 @@
       display: inline-flex;
       flex-direction: column;
       gap: 6px;
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 
@@ -48,8 +49,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-    padding: 9px 10px;
-    border: 1px inset $color-primary;
+    padding: 0 10px;
+    border: 1px solid $color-primary;
+    height: 38px;
 
     &_select {
       width: 100%;
