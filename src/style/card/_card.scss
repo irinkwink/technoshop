@@ -29,6 +29,7 @@
     height: 120px;
     &_active {
       outline: 2px solid $color-main;
+      outline-offset: -2px;
     }
   }
 
