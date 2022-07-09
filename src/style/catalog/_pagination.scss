@@ -57,31 +57,5 @@
       cursor: default;
       pointer-events: none;
     }
-
-
   }
-}
-
-
-.swiper-button-prev,
-.swiper-button-next {
-  width: 22px;
-  height: 22px;
-  padding: 30px 30px;
-  color: $color-primary;
-}
-
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-  left: -20px;
-}
-
-.swiper-button-next,
-.swiper-rtl .swiper-button-prev {
-  right: -20px;
-}
-
-.swiper-button-prev:after,
-.swiper-button-next:after {
-  font-size: 22px;
 }

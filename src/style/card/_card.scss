@@ -1,5 +1,7 @@
 .card {
   margin-bottom: 70px;
+  position: relative;
+  min-height: 80vh;
 
   &__details {
     display: flex;
@@ -39,6 +41,7 @@
   }
 
   &__title {
+    display: block;
     font-weight: 700;
     font-size: 44px;
     line-height: 54px;
@@ -128,7 +131,7 @@
 
   &__params-item {
     display: grid;
-    grid-template-columns: 210px max-content;
+    grid-template-columns: 210px 1fr;
     gap: 100px;
     white-space: pre-wrap;
   }
@@ -148,6 +151,21 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;
+  }
+
+  &__preload {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background-color: $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      transform: rotate(0);
+      animation: rotation 1s infinite linear;
+    }
   }
 
 }

@@ -3,6 +3,16 @@
     border: 1px solid $color-grey;
     border-radius: 20px;
     padding: 40px 20px;
+    margin: 0 auto;
+
+    @include desktop {
+      max-width: 494px;
+      padding-bottom: 28px;
+    }
+
+    @include mobile {
+      border-radius: 0;
+    }
   }
 
   &__table {
@@ -48,6 +58,12 @@
     align-items: flex-start;
     gap: 17px;
     padding: 0 10px;
+
+    @include desktop {
+      flex-direction: column;
+      max-width: 352px;
+      margin: 0 auto;
+    }
   }
 
   &__submit {
@@ -71,6 +87,10 @@
     font-size: 14px;
     line-height: 17px;
     color: $color-grey;
+
+    @include desktop {
+      flex-basis: auto;
+    }
 
   }
 

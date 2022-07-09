@@ -65,6 +65,12 @@
     &_select {
       width: 100%;
       color: $color-grey;
+
+      appearance: none;
+      background-image: url('img/arrow-down.svg');
+      background-repeat: no-repeat;
+      background-position: calc(100% - 33px) center;
+
     }
 
     &::placeholder {
@@ -75,11 +81,6 @@
       outline-color: $color-main;
     }
   }
-
-
-  //&__checkbox {
-  //  margin-right: 10px;
-  //}
 
   &__apply {
     display: block;
