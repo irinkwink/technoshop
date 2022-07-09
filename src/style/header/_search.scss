@@ -1,8 +1,11 @@
 .search {
   width: 100%;
-  max-width: 818px;
   height: 50px;
   position: relative;
+
+  @include mobile {
+    height: 44px;
+  }
 
   &__input {
     width: 100%;
@@ -14,6 +17,10 @@
     line-height: 20px;
     padding-left: 24px;
     padding-right: 60px;
+
+    @include mobile {
+      padding-right: 44px;
+    }
 
     &:focus {
       outline-color: $color-main;
@@ -29,6 +36,10 @@
     background-color: transparent;
     line-height: 0;
     transition: color 0.36s ease-in-out;
+
+    @include mobile {
+      right: 15px;
+    }
 
     &:hover {
       color: $color-main;

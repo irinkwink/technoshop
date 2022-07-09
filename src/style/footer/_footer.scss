@@ -3,24 +3,64 @@
   color: $color-secondary;
   padding: 80px 0;
 
+  @include laptop {
+    padding: 50px 0;
+  }
+
+  @include tablet {
+    padding: 40px 0;
+  }
+
+  @include mobile {
+    padding: 23px 0;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
-    gap: 30px;
+    gap: 50px 30px;
+    grid-template-areas:
+      "logo catalog customer contacts"
+      "copyright . . design";
+
+    @include laptop {
+      grid-template-columns: 395px 235px 280px;
+      row-gap: 60px;
+      grid-template-areas:
+      "logo . ."
+      "catalog customer contacts"
+      "copyright . design";
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+      "logo ."
+      "catalog customer"
+      "catalog contacts"
+      "copyright design";
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+      grid-template-areas:
+      "logo"
+      "catalog"
+      "customer"
+      "contacts"
+      "copyright"
+      "design";
+    }
   }
 
   &__logo-link {
     place-self: start;
+    grid-area: logo;
   }
 
   &__logo {
     width: 146px;
-  }
-
-  &__column {
-    &:last-child {
-      grid-column: 4;
-    }
   }
 
   &__column-title {
@@ -28,14 +68,33 @@
     font-size: 32px;
     line-height: 130%;
     margin-bottom: 40px;
+
+    @include laptop {
+      margin-bottom: 20px;
+    }
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
   }
+
   &__list {
     font-weight: 400;
     font-size: 22px;
     line-height: 150%;
 
+    @include mobile {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
     &_double {
       column-count: 2;
+
+      @include  tablet {
+        column-count: 1;
+      }
     }
 
     &_contacts {
@@ -43,14 +102,27 @@
       font-size: 16px;
       line-height: 130%;
       margin-bottom: 36px;
+
+      @include mobile {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
     }
   }
 
   &__item {
     margin-bottom: 15px;
 
+    @include mobile {
+      margin-bottom: 12px;
+    }
+
     &__contact {
       margin-bottom: 21px;
+
+      @include mobile {
+        margin-bottom: 15px;
+      }
     }
 
     &:last-child {
@@ -66,14 +138,39 @@
     }
   }
 
+  &__catalog {
+    grid-area: catalog;
+  }
+  &__customer {
+    grid-area: customer;
+  }
+  &__contacts {
+    grid-area: contacts;
+
+  }
+
   &__copyright {
+    grid-area: copyright;
     font-weight: 500;
     font-size: 16px;
     line-height: 130%;
-    margin-bottom: 10px;
 
-    &:last-child {
-      margin-bottom: 0;
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__design {
+    grid-area: design;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    @include mobile {
+      font-size: 14px;
     }
   }
 }
