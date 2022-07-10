@@ -20,3 +20,17 @@ export const getGoodsItem = (id) =>
 export const getCategory = () =>
   fetch(`${API_URL}api/category`)
     .then(response => response.json())
+
+
+export const getCartGoods = (cartGoods) => {
+  let value = [];
+
+  for (const cartGoodsKey in cartGoods) {
+    value.push(cartGoodsKey);
+  }
+
+  const url = new URL(`${API_URL}api/goods`);
+  url.searchParams.set('list', value);
+
+  return fetch(url).then(response => response.json())
+}

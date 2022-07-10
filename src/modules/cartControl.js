@@ -59,11 +59,17 @@ export const cartControl = ({wrapper, classAdd, classDelete, classCount}) => {
   if (wrapper) {
     wrapper.addEventListener('click', (e) => {
       const target = e.target;
+      console.log(target);
       const id = target.dataset.idGoods;
+
+      console.log(id);
 
       if (!id) return;
 
+      console.log(target.closest(`.${classDelete}`))
+
       if (target.closest(`.${classDelete}`)) {
+
         removeToCart(id);
       } else if (target.closest(`.${classAdd}`)) {
         addToCart(id);

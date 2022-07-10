@@ -97,6 +97,10 @@
     position: relative;
     transition: color 0.36s ease-in-out;
 
+    &:hover {
+      color: $color-main;
+    }
+
     &:after {
       content: attr(data-count);
       background-color: $color-main;
@@ -110,10 +114,6 @@
       position: absolute;
       right: -8px;
       bottom: -10px;
-    }
-
-    &:hover {
-      color: $color-main;
     }
   }
 }
