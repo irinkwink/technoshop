@@ -15,6 +15,8 @@ import {renderItem} from "./modules/renderItem";
 import {renderRecommended} from "./modules/renderRecommended";
 import {filter} from "./modules/filter";
 import {footerCategory} from "./modules/footer";
+import {cartControl} from "./modules/cartControl";
+import {serviceCounter} from "./modules/counterControl";
 
 footerCategory();
 
@@ -34,8 +36,14 @@ try {
     </div>
   `
     getGoods().then(({goods, pages, page}) => {
+
       renderGoods(goodsList, goods);
       startPagination(paginationWrapper, pages, page);
+      cartControl({
+        wrapper: goodsList,
+        classAdd: 'goods-item__to-cart',
+        classDelete: 'goods-item__to-cart_remove',
+      });
     });
   }
 
@@ -59,8 +67,19 @@ try {
     `;
     card.append(preload);
 
+    serviceCounter({
+      selectorWrapper: '.card__count',
+      selectorNumber: '.card__number',
+      selectorDec: '.card__btn_dec',
+      selectorInc: '.card__btn_inc',
+    });
+
     getGoodsItem(id).then(item => {
       renderItem(item);
+      cartControl({
+        classAdd: 'card__add-cart',
+        classCount: 'card__number',
+      })
       preload.remove();
       return item.category;
     }).then(category => {

@@ -94,7 +94,23 @@
   }
 
   &__cart {
+    position: relative;
     transition: color 0.36s ease-in-out;
+
+    &:after {
+      content: attr(data-count);
+      background-color: $color-main;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: -8px;
+      bottom: -10px;
+    }
 
     &:hover {
       color: $color-main;

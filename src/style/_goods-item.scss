@@ -69,6 +69,11 @@
     line-height: 20px;
     transition: all 0.36s ease-in-out;
 
+    &_remove {
+      color: $color-secondary;
+      background-color: $color-primary;
+    }
+
     @include mobile {
       font-size: 12px;
       line-height: 15px;
@@ -79,10 +84,10 @@
       background-color: $color-main;
     }
 
-    &:active {
-      border-color: transparent;
-      background-color: $color-main-sub;
-    }
+    //&:active {
+    //  border-color: transparent;
+    //  background-color: $color-main-sub;
+    //}
   }
 }
 
