@@ -4,7 +4,7 @@ export const renderGoods = (wrapper, goods) => {
   wrapper.textContent = '';
 
   if (!goods.length) {
-    wrapper.innerHTML = '<h2>Нет товаров по вашему запросу</h2>'
+    wrapper.innerHTML = '<h2 class="goods__message">Нет товаров по вашему запросу</h2>'
   }
 
   const cards = goods.map(item => {

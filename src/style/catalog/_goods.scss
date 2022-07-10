@@ -1,4 +1,5 @@
 .goods {
+
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(310px, 340px));
@@ -16,6 +17,20 @@
     @include mobile {
       grid-template-columns: repeat(auto-fill, 145px);
       gap: 10px;
+    }
+  }
+
+  &__message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid $color-main;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 150%;
+
+    @include mobile {
+      font-size: 26px;
     }
   }
 
