@@ -2,6 +2,14 @@
   display: flex;
   align-items: center;
 
+  @include mobile {
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 18px;
+    gap: 20px 18px;
+  }
+
   &__img {
     width: 200px;
     object-fit: cover;
@@ -9,6 +17,16 @@
 
     @include desktop {
       width: 137px;
+      margin-right: 8px;
+    }
+
+    @include tablet {
+      width: 104px;
+      margin-right: 18px;
+    }
+
+    @include mobile {
+      margin-right: 0;
     }
   }
 
@@ -22,6 +40,17 @@
 
     @include desktop {
       flex-basis: 320px;
+      padding-top: 17px;
+    }
+
+    @include tablet {
+      flex-basis: 160px;
+      margin-right: 7px;
+      padding-top: 0;
+    }
+
+    @include mobile {
+      margin-right: 0;
     }
   }
 
@@ -35,12 +64,23 @@
     @include desktop {
       min-height: auto;
     }
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 12px;
+    }
   }
 
   &__vendor-code {
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
+
+    @include tablet {
+      font-size: 12px;
+      line-height: 15px;
+    }
   }
 
   &__control {
@@ -49,6 +89,11 @@
     justify-content: space-between;
     flex-grow: 1;
     gap: 10px;
+
+    @include mobile {
+      justify-content: flex-start;
+      gap: 39px;
+    }
   }
 
   &__count {
@@ -59,6 +104,10 @@
     max-width: 120px;
     gap: 10px;
     //margin-right: 70px;
+
+    @include tablet {
+      max-width: 116px;
+    }
   }
 
   &__btn {
@@ -70,6 +119,12 @@
     font-weight: 400;
     font-size: 30px;
     line-height: 100%;
+
+    &:hover {
+      border-color: $color-main;
+      color: $color-main;
+    }
+
     &_dec {
 
     }
@@ -81,6 +136,11 @@
     font-weight: 400;
     font-size: 30px;
     line-height: 37px;
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
 
   &__price {
@@ -98,6 +158,19 @@
     height: 32px;
     background-color: transparent;
     border: none;
+
+    @include mobile {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      width: 18px;
+      height: 18px;
+
+    }
+
+    &:hover {
+      color: $color-main;
+    }
 
   }
 }

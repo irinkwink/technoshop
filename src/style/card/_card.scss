@@ -80,6 +80,11 @@
     font-weight: 400;
     font-size: 30px;
     line-height: 100%;
+
+    &:hover {
+      border-color: $color-main;
+      color: $color-main;
+    }
     &_dec {
 
     }

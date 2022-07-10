@@ -1,4 +1,13 @@
 .total {
+  @include mobile {
+    position: relative;
+    border-color:  $color-grey;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px 0;
+
+  }
+
   &__wrapper {
     border: 1px solid $color-grey;
     border-radius: 20px;
@@ -11,12 +20,18 @@
     }
 
     @include mobile {
-      border-radius: 0;
+      border: none;
+      padding: 15px 0 25px;
     }
+
   }
 
   &__table {
     margin-bottom: 50px;
+
+    @include mobile {
+      margin-bottom: 30px;
+    }
   }
 
   &__row {
@@ -27,6 +42,12 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
+
+    @include mobile {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 17px;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -39,6 +60,12 @@
       padding-bottom: 9px;
       border-bottom: 1px solid $color-grey-light;
       margin-bottom: 27px;
+
+      @include mobile {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 14px;
+      }
     }
 
     &_grey {
@@ -47,6 +74,10 @@
 
     &_gap {
       margin-bottom: 40px;
+
+      @include mobile {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -63,6 +94,11 @@
       flex-direction: column;
       max-width: 352px;
       margin: 0 auto;
+      gap: 20px;
+    }
+    @include mobile {
+      max-width: 100%;
+      gap: 15px;
     }
   }
 
@@ -73,9 +109,25 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    color: $color-secondary;
     background-color: $color-main;
-    border: none;
+    color: $color-secondary;
+    border: 1px solid $color-main;
+
+    @include mobile {
+      height: 50px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &:hover {
+      background-color: $color-main-sub;
+      border-color: $color-main-sub;
+    }
+
+    &:active {
+      background-color: $color-main;
+      border-color: $color-main-dark;
+    }
   }
 
   &__agree {
@@ -92,10 +144,19 @@
       flex-basis: auto;
     }
 
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
   }
 
   &__agree-link {
     color: $color-primary;
+
+    &:hover {
+    color: $color-main;
+  }
   }
 
 }

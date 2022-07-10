@@ -56,7 +56,9 @@
     line-height: 20px;
     padding: 0 10px;
     border: 1px solid $color-primary;
+    border-radius: 0;
     height: 38px;
+    color: $color-grey;
 
     @include laptop {
       width: 145px;
@@ -64,21 +66,29 @@
 
     &_select {
       width: 100%;
-      color: $color-grey;
-
       appearance: none;
-      background-image: url('img/arrow-down.svg');
-      background-repeat: no-repeat;
-      background-position: calc(100% - 33px) center;
-
-    }
-
-    &::placeholder {
-      color: $color-grey;
     }
 
     &:focus {
       outline-color: $color-main;
+    }
+  }
+
+  &__select-label {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 33px;
+      top: 50%;
+      transform: translateY(calc(-50% - 2px)) rotate(45deg);
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: transparent $color-primary $color-primary transparent;
     }
   }
 
