@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { resourceUsage } = require("process");
+const Critical = require('critical-css-webpack-plugin');
 
 const PAGES = ['index', 'cart', 'card'];
 
@@ -10,7 +10,19 @@ const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
 
+const plugins = [
+  ...PAGES.map(page => new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'src', `${page}.html`),
+    filename: `./${page}.html`,
+  })),
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+  }),
+];
 
+if (!devMode) {
+  plugins.push(new Critical());
+}
 
 module.exports = {
   mode,
@@ -32,15 +44,7 @@ module.exports = {
     filename: '[name].js',
     assetModuleFilename: 'assets/[name][ext]'
   },
-  plugins: [
-      ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', `${page}.html`),
-      filename: `./${page}.html`,
-    })),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }),
-  ],
+  plugins,
   module: {
     rules: [
       {
@@ -62,6 +66,7 @@ module.exports = {
               }
             }
           },
+          'group-css-media-queries-loader',
           "sass-loader",
         ],
       },

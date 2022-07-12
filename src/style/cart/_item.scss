@@ -10,6 +10,27 @@
     gap: 20px 18px;
   }
 
+  &__link {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 25px;
+    flex-basis: 583px;
+
+    @include desktop {
+      flex-basis: 465px;
+    }
+
+    @include tablet {
+      flex-basis: 282px;
+      margin-right: 7px;
+      padding-top: 0;
+    }
+
+    @include mobile {
+      margin-right: 0;
+    }
+  }
+
   &__img {
     width: 200px;
     object-fit: cover;
@@ -24,28 +45,18 @@
       width: 104px;
       margin-right: 18px;
     }
-
-    @include mobile {
-      margin-right: 0;
-    }
   }
 
   &__detail {
-    align-self: flex-start;
     display: flex;
     flex-direction: column;
-    margin-right: 25px;
     padding-top: 28px;
-    flex-basis: 353px;
 
     @include desktop {
-      flex-basis: 320px;
       padding-top: 17px;
     }
 
     @include tablet {
-      flex-basis: 160px;
-      margin-right: 7px;
       padding-top: 0;
     }
 

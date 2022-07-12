@@ -62,14 +62,52 @@ export const renderItem = (item) => {
 
   const cardImage = document.querySelector('.card__image');
 
-  cardImage.append(createCardImageSlider(item.images.large))
+  cardImage.append(createCardImageSlider(item.images.large));
 
   const cardSliderThumb = document.querySelector('.card__slider-thumb');
 
-  const swiperScrollbar = document.createElement('div');
-  swiperScrollbar.className = 'swiper-scrollbar';
+  if (item.images.small.length > 1) {
+    const swiperScrollbar = document.createElement('div');
+    swiperScrollbar.className = 'swiper-scrollbar';
 
-  cardSliderThumb.append(createCardImageThumbsSlider(item.images.small), swiperScrollbar);
+    cardSliderThumb.append(createCardImageThumbsSlider(item.images.small), swiperScrollbar);
+
+    const thumbSlider = new Swiper(cardSliderThumb, {
+      spaceBetween: 15,
+      slidesPerView: 3,
+
+      breakpoints: {
+        560: {
+          spaceBetween: 20,
+        },
+        960: {
+          spaceBetween: 27,
+        },
+        1200: {
+          spaceBetween: 44,
+        },
+      },
+
+      scrollbar: {
+        el: swiperScrollbar,
+        draggable: true,
+      },
+      modules: [Scrollbar]
+    });
+
+    const imageSlider = new Swiper(cardImage, {
+      spaceBetween: 10,
+      slidesPerView: 1,
+      thumbs: {
+        swiper: thumbSlider,
+        slideThumbActiveClass: 'card__thumb_active',
+      },
+      modules: [Thumbs],
+    });
+
+  } else {
+    cardSliderThumb.remove();
+  }
 
   const cardTitle = document.querySelector('.card__title');
   cardTitle.textContent = item.title;
@@ -93,29 +131,6 @@ export const renderItem = (item) => {
 
 
 
-
-
-
-  const thumbSlider = new Swiper(cardSliderThumb, {
-    spaceBetween: 40,
-    slidesPerView: 3,
-    // centeredSlides: true,
-    scrollbar: {
-      el: swiperScrollbar,
-      draggable: true,
-    },
-    modules: [Scrollbar]
-  });
-
-  const imageSlider = new Swiper(cardImage, {
-    spaceBetween: 10,
-    slidesPerView: 1,
-    thumbs: {
-      swiper: thumbSlider,
-      slideThumbActiveClass: 'card__thumb_active',
-    },
-    modules: [Thumbs],
-  });
 }
 
 

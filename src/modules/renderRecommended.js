@@ -50,29 +50,26 @@ export const renderRecommended = (data) => {
 
 
   const swiper3 = new Swiper(recommendedSlider, {
-    spaceBetween: 2,
-    slidesPerView: 10,
+    spaceBetween: 10,
+    slidesPerView: 2,
 
     breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 10
-      },
       560: {
-        slidesPerView: 2,
-        spaceBetween: 20
+        spaceBetween: 20,
+        slidesPerView: 1,
       },
-      960: {
+      630: {
+        slidesPerView: 2,
+      },
+      970: {
         slidesPerView: 3,
-        spaceBetween: 20
       },
       1200: {
         slidesPerView: 4,
         spaceBetween: 30
       },
-      1600: {
+      1610: {
         slidesPerView: 5,
-        spaceBetween: 30
       }
     },
 

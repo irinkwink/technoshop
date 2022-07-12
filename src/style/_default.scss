@@ -79,6 +79,12 @@ iframe {
 Чтобы контент не прижимался к краям экрана
 */
 
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .container {
   max-width: calc(1820px + 60px);
   padding: 0 30px;
@@ -104,6 +110,8 @@ iframe {
 }
 
 .main {
+  flex-grow: 1;
+  position: relative;
   padding-top: 44px;
   padding-bottom: 120px;
 
@@ -121,5 +129,19 @@ input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
+.preload {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background-color: $color-secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    transform: rotate(0);
+    animation: rotation 1s infinite linear;
+  }
+}
 
 

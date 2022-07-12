@@ -132,6 +132,10 @@
     &_select {
       width: 100%;
       appearance: none;
+
+      @include laptop {
+        width: 100%;
+      }
     }
 
     &:focus {
