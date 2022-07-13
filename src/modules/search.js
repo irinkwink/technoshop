@@ -7,7 +7,6 @@ export const searchWithoutReload = (goodsList, paginationWrapper) => {
   const searchForm = document.querySelector('.search');
 
   searchForm.addEventListener('submit', (e) => {
-    console.log(e)
     e.preventDefault();
 
     const searchValue = searchForm.search.value;

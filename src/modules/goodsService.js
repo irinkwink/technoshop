@@ -1,12 +1,16 @@
 import {API_URI} from "./var";
 
-export const getGoods = () => {
+export const getGoods = (params) => {
   const pageURL = new URL(location);
 
   const url = new URL(`${API_URI}api/goods`);
 
-  for (const [name, value] of pageURL.searchParams.entries()) {
-    url.searchParams.set(name, value);
+  if (params) {
+    url.searchParams.set('category', params);
+  } else {
+    for (const [name, value] of pageURL.searchParams.entries()) {
+      url.searchParams.set(name, value);
+    }
   }
 
   return fetch(url).then(response => response.json())

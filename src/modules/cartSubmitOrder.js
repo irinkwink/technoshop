@@ -30,7 +30,6 @@ export const cartSubmitOrder = () => {
       .then((json) => {
         showPopUp('ok');
         localStorage.removeItem('cart-ts');
-        console.log(localStorage)
         return console.log(json)
       });
 

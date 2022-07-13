@@ -89,7 +89,7 @@ try {
       preload.remove();
       return item.category;
     }).then(category => {
-        return getGoods({category})
+        return getGoods(category)
     }).then(data => {
       renderRecommended(data.goods);
     })

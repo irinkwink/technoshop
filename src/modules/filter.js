@@ -38,7 +38,6 @@ export const filter = (goodsList, paginationWrapper) => {
   const filterForm = document.querySelector('.filter__form');
 
   filterForm.addEventListener('submit', (e) => {
-    console.log(e);
     e.preventDefault();
 
     const checkboxes = new Set();
@@ -78,9 +77,11 @@ export const filter = (goodsList, paginationWrapper) => {
 
     const url = new URL(location);
 
-    const search = url.searchParams.get('search');
+    // фильтровать, учитывая строку поиска.
+    // чтобы не учитывать поиск, нужно раскоментировать код
 
-    url.search = '';
+    // const search = url.searchParams.get('search');
+    // url.search = '';
 
     for (const key in data) {
       url.searchParams.set(key, data[key]);
