@@ -18,6 +18,7 @@ import {footerCategory} from "./modules/footer";
 import {cartControl, renderCart} from "./modules/cartControl";
 import {serviceCounter} from "./modules/counterControl";
 import {searchWithoutReload} from "./modules/search";
+import {cartSubmitOrder, toggleSubmitButton} from "./modules/cartSubmitOrder";
 
 footerCategory();
 
@@ -112,7 +113,10 @@ try {
 
     const list = Object.keys(cartGoods);
 
+
     if  (list.length) {
+      toggleSubmitButton();
+
       const preload = document.createElement('div');
       preload.className = 'preload';
       preload.innerHTML = `
@@ -124,23 +128,12 @@ try {
 
       getCartGoods(list)
         .then(goods => {
-
           renderCart(goods, cartGoods);
           preload.remove();
-
-
-          // cartControl({
-          //   wrapper: cartGoodsList,
-          //   classAdd: 'item__btn_inc',
-          //   classCount: 'item__number',
-          //   classDelete: 'item__remove-cart',
-          // });
-
-
+          cartSubmitOrder();
         });
     }
   }
-
 } catch (e) {
   console.warn(e);
 }

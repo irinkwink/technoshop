@@ -1,5 +1,6 @@
-import {API_URL} from "./var";
+import {API_URI} from "./var";
 import {serviceCounter} from "./counterControl";
+import {toggleSubmitButton} from "./cartSubmitOrder";
 
 const addToCart = (id, count = 1) => {
   const cartGoods = localStorage.getItem('cart-ts') ?
@@ -11,7 +12,7 @@ const addToCart = (id, count = 1) => {
   localStorage.setItem('cart-ts', JSON.stringify(cartGoods));
 };
 
-const removeToCart = (id) => {
+const removeFromCart = (id) => {
   const cartGoods = localStorage.getItem('cart-ts') ?
     JSON.parse(localStorage.getItem('cart-ts')) :
     {};
@@ -56,6 +57,57 @@ const checkItems = ({classDelete, classAdd, classCount} = {}) => {
   }
 };
 
+const checkTotalOrder = (goods) => {
+  const cartGoods = localStorage.getItem('cart-ts') ?
+    JSON.parse(localStorage.getItem('cart-ts')) :
+    {};
+
+  let count = 0;
+
+  for (const cartGoodsKey in cartGoods) {
+    count += cartGoods[cartGoodsKey];
+  }
+
+  const keys = Object.keys(cartGoods);
+
+  const costAll = goods.reduce((acc, item) => {
+    return keys.includes(item.id) ?
+      acc + item.price * cartGoods[item.id] :
+      acc;
+  }, 0);
+
+  const priceAll = new Intl.NumberFormat('ru-Ru', {
+    style: 'currency',
+    currency: 'RUB',
+    maximumFractionDigits: 0,
+  }).format(costAll);
+
+  const total = document.getElementById('total');
+  total.innerHTML = `<span>Итого</span><span>${priceAll}</span>`;
+
+  const cost = document.getElementById('cost');
+  cost.innerHTML = `<span>Товары, ${count} шт.</span><span>${priceAll}</span>`;
+
+  const monthNames = [
+    "января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"
+  ];
+
+  const date1 = new Date(new Date().getTime()+(10*24*60*60*1000));
+  const date2 = new Date(new Date().getTime()+(17*24*60*60*1000));
+
+  const dates = `
+    ${date1.getDate()}
+    ${ date1.getMonth() === date2.getMonth() ? '' : monthNames[date1.getMonth()]}
+    -
+    ${date2.getDate()}
+    ${monthNames[date2.getMonth()]}`;
+
+  const date = document.getElementById('date');
+  date.innerHTML = `<span>Дата доставки</span><span>${dates}</span>`
+
+}
+
 export const cartControl = ({wrapper, classAdd, classDelete, classCount} = {}) => {
   checkItems({classDelete, classAdd, classCount});
 
@@ -68,7 +120,7 @@ export const cartControl = ({wrapper, classAdd, classDelete, classCount} = {}) =
 
       if (target.closest(`.${classDelete}`)) {
 
-        removeToCart(id);
+        removeFromCart(id);
       } else if (target.closest(`.${classAdd}`)) {
         addToCart(id);
       }
@@ -93,12 +145,10 @@ export const cartControl = ({wrapper, classAdd, classDelete, classCount} = {}) =
 
 export const renderCart = (goods, cartGoods) => {
   const cartGoodsList = document.querySelector('.cart-goods__list');
-  console.log(cartGoodsList)
-  cartGoodsList.textContent = '';
+  cartGoodsList.innerHTML = '';
 
   checkItems();
-
-  console.log(cartGoods)
+  checkTotalOrder(goods);
 
   goods.forEach(item => {
     const li = document.createElement('li');
@@ -110,7 +160,7 @@ export const renderCart = (goods, cartGoods) => {
 
     const img = new Image(200, 200);
     img.className = 'item__img';
-    img.src = `${API_URL}${item.images.present}`;
+    img.src = `${API_URI}${item.images.present}`;
     img.alt = item.title;
 
     const detail = document.createElement('div');
@@ -139,11 +189,11 @@ export const renderCart = (goods, cartGoods) => {
     number.className = 'item__number';
     number.value = cartGoods[item.id];
 
-    console.log(cartGoods[item.id]);
-
     const inc = document.createElement('button');
     inc.className = 'item__btn item__btn_inc';
     inc.textContent = '+';
+
+    count.append(dec, number, inc);
 
     const price = document.createElement('p');
     price.className = 'item__price';
@@ -161,7 +211,6 @@ export const renderCart = (goods, cartGoods) => {
         </svg>
       `;
 
-    count.append(dec, number, inc);
     control.append(count, price, remove);
     detail.append(title, vendorCode);
     a.append(img, detail);
@@ -182,13 +231,22 @@ export const renderCart = (goods, cartGoods) => {
       if (target.closest('.item__btn_dec, .item__btn_inc')) {
         addToCart(item.id, +number.value);
         checkItems();
+        checkTotalOrder(goods);
       }
     });
 
     remove.addEventListener('click', () => {
-      removeToCart(item.id);
+      removeFromCart(item.id);
       li.remove();
       checkItems();
+      checkTotalOrder(goods);
+
+      if (cartGoodsList.innerHTML === '') {
+        toggleSubmitButton();
+        cartGoodsList.innerHTML = `
+            <li class="cart-goods__message">В корзине пока нет товаров</li>
+        `
+      }
     })
   })
 }

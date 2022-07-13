@@ -38,7 +38,7 @@ export const filter = (goodsList, paginationWrapper) => {
   const filterForm = document.querySelector('.filter__form');
 
   filterForm.addEventListener('submit', (e) => {
-    console.log('yeaaa');
+    console.log(e);
     e.preventDefault();
 
     const checkboxes = new Set();

@@ -62,11 +62,11 @@
 
           <div class="total__wrapper">
             <ul class="total__table">
-              <li class="total__row total__row_header">
+              <li class="total__row total__row_header" id="total">
                 <span>Итого</span><span>0 ₽</span>
               </li>
-              <li class="total__row total__row_grey">
-                <span>Товары, 3 шт.</span><span>0 ₽</span>
+              <li class="total__row total__row_grey" id="cost">
+                <span>Товары, 0 шт.</span><span>0 ₽</span>
               </li>
               <li class="total__row total__row_grey">
                 <span>Скидка</span><span>0 ₽</span>
@@ -74,21 +74,21 @@
               <li class="total__row total__row_grey total__row_gap">
                 <span>Доставка</span><span>0 ₽</span>
               </li>
-              <li class="total__row">
-                <span>Дата</span><span>01 - 03 июля</span>
+              <li class="total__row" id="date">
+                <span>Дата доставки</span><span></span>
               </li>
               <li class="total__row">
                 <span>Оплата</span><span>Картой</span>
               </li>
             </ul>
 
-            <div class="total__order">
-              <button class="total__submit">Оформить заказ</button>
+            <form class="total__order">
+              <button class="total__submit total__submit_inactive" type="submit">Оформить заказ</button>
               <label class="total__agree">
                 <input type="checkbox" name="agree" required>
                 <span>Согласен с <a href="#" class="total__agree-link">условиями</a> правил пользования торговой площадкой и&nbsp;правилами возврата</span>
               </label>
-            </div>
+            </form>
           </div>
         </section>
 

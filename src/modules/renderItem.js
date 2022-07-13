@@ -1,4 +1,4 @@
-import {API_URL} from "./var";
+import {API_URI} from "./var";
 import Swiper, {Scrollbar, Thumbs} from "swiper";
 
 const createCardImageSlider = (largeImages) => {
@@ -9,7 +9,7 @@ const createCardImageSlider = (largeImages) => {
     const li = document.createElement('li');
     li.className = 'swiper-slide';
     const img = new Image();
-    img.src = `${API_URL}${url}`;
+    img.src = `${API_URI}${url}`;
     li.append(img);
     return li
   })
@@ -26,7 +26,7 @@ const createCardImageThumbsSlider = (smallImages) => {
     const li = document.createElement('li');
     li.className = 'swiper-slide card__thumb';
     const img = new Image();
-    img.src = `${API_URL}${url}`;
+    img.src = `${API_URI}${url}`;
     li.append(img);
     return li
   })

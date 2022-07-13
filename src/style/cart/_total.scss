@@ -82,6 +82,7 @@
         line-height: 22px;
         margin-bottom: 14px;
         border-bottom: none;
+        padding-bottom: 9px;
 
         &:after {
           content: '';
@@ -141,6 +142,13 @@
     background-color: $color-main;
     color: $color-secondary;
     border: 1px solid $color-main;
+
+    &_inactive {
+      background-color: $color-grey-light;
+      border-color: $color-grey-light;
+      cursor: default;
+      pointer-events: none;
+    }
 
     @include mobile {
       height: 50px;

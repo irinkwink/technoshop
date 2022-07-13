@@ -1,4 +1,4 @@
-import {API_URL} from "./var";
+import {API_URI} from "./var";
 
 export const renderGoods = (wrapper, goods) => {
   wrapper.textContent = '';
@@ -16,7 +16,7 @@ export const renderGoods = (wrapper, goods) => {
       <article class="goods-item">
         <a href="card.html?id=${item.id}" class="goods-item__link">
             <img class="goods-item__image"
-                src="${API_URL}${item.images.present}"
+                src="${API_URI}${item.images.present}"
                 alt="${item.title}"
                 width="340"
                 height="340"
